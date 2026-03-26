@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #eee;
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+body.dark #theme-toggle {
+  background: #222;
+  color: #fff;
+}
+
+.quiz-box {
+  background: #fff;
+  width: 400px;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark .quiz-box {
+  background: #222;
+  color: #eee;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.options {
+  list-style: none;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+body.dark .options label {
+  border-color: #444;
+  color: #eee;
+}
+
+.options input[type="radio"] {
+  accent-color: #667eea;
+}
+
+.options label:hover {
+  background: #f5f7ff;
+  border-color: #667eea;
+}
+
+body.dark .options label:hover {
+  background: #333;
+}
+
+.correct {
+  border-color: #28a745;
+  background-color: #e6f9ed;
+}
+
+body.dark .correct {
+  background-color: #0a3d0a;
+  border-color: #28a745;
+  color: #e6f9ed;
+}
+
+.wrong {
+  border-color: #dc3545;
+  background-color: #fdecea;
+}
+
+body.dark .wrong {
+  background-color: #3d0a0a;
+  border-color: #dc3545;
+  color: #fdecea;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn.submit {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+}
+
+.btn.next {
+  background: linear-gradient(135deg, #42e695, #3bb2b8);
+  color: #fff;
+}
+
+.refresh {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+}
+/* Base is for laptops/desktops, tweak downwards */
+
+/* Tablets and small laptops (≤ 900px) */
+@media (max-width: 900px) {
+  .quiz-box {
+    width: 90%;
+    max-width: 480px;
+    padding: 20px 22px;
+  }
+
+  .question {
+    font-size: 17px;
+  }
+
+  .btn,
+  .refresh {
+    font-size: 13px;
+    padding: 9px 18px;
+  }
+}
+
+/* Large phones and small tablets (≤ 600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+
+  #theme-toggle {
+    position: static;
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
+
+  .quiz-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 18px 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+
+  .question {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .options label {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .btn,
+  .refresh {
+    width: 100%;
+    text-align: center;
+    padding: 9px 0;
+  }
+}
+
+/* Very small phones (≤ 400px) */
+@media (max-width: 400px) {
+  .quiz-box {
+    padding: 14px 12px;
+    border-radius: 10px;
+  }
+
+  .question {
+    font-size: 15px;
+  }
+
+  .options label {
+    font-size: 13px;
+  }
+
+  #theme-toggle {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
